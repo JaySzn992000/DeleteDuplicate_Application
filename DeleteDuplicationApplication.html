@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+<div id="div_remove">
+<h1>Remove Duplicate</h1>
+</div>
+
+<div id="container">
+<textarea name="" cols="30" rows="10" id="duplicate"></textarea> <br>
+
+
+<button onclick="dlt()" id="dlt_dup">Delete Duplicate</button>
+</div>
+
+<script>
+
+
+function dlt(){
+
+var duplicate = document.getElementById("duplicate").value;
+var array = duplicate.split(" ");
+var i = 0;
+var b = []
+while ( i < array.length ) {
+    b[i] = array[i]
+    i++
+}
+
+
+var n = 0;
+while ( n < array.length ) {
+    var k = n+1;
+    while ( k < array.length ) {
+    if ( b[n] == b[k] ) {
+        b.splice(k,b.length)
+        break;
+    }
+    k++
+    }
+    n++
+}
+document.getElementById("duplicate").value = b.join(" ");
+}
+
+
+</script>
+
+
+
+
+<style>
+
+
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+
+#container textarea{
+    width: 100%;
+    height: 100vh;
+    outline: 1px solid gainsboro;
+    border: none;
+    padding: 27px;
+}
+
+
+#div_remove{
+    background-color: rebeccapurple;
+    width: 100%;
+    padding: 21px;
+}
+
+h1{
+    color: white;
+}
+
+
+#dlt_dup{
+    background-color: yellow;
+    top: 2.1%;
+    position: absolute;
+    right: 1%;
+    border: none;
+    padding: 17px;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+
+</style>
+
+
+</body>
+</html>
